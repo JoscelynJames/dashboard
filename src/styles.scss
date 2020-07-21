@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { 
+  height: 100%;
+  background-color: #141414;
+  margin: 10px;
+}
+
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: white;
+ }
+
+.grid-column-one-third {
+  grid-column: 1 / 3;
+}
+
+.grid-column-one-fourth {
+  grid-column: 1 / 4;
+}
+
+.grid-row-one {
+  grid-row: 1;
+}
+
+.grid-column-two-four {
+  grid-column: 2 / 4
+}
