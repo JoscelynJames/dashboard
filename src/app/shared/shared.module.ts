@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { MaterialModule } from '../material/material.module';
-import {MatCardModule} from '@angular/material/card';
 
 import { CardComponent } from './card/card.component';
+import { ChartComponent } from './chart/chart.component'
 
 @NgModule({
   imports: [ MaterialModule ],
   declarations: [
     CardComponent,
+    ChartComponent
   ],
   exports: [ 
-    CardComponent
+    CardComponent,
+    ChartComponent
   ]
 })
+
 export class SharedModule { }
