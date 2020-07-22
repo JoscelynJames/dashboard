@@ -5,7 +5,23 @@ import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_dark from "@amcharts/amcharts4/themes/dark";
 import am4themes_mc from "@amcharts/amcharts4/themes/microchart";
 
-export type Chart = typeof am4charts.XYChart
+export interface Chart extends am4charts.XYChart {}
+// TODO: Come back to type this correctly
+export interface Sprite extends am4core.Sprite {
+  data: Array<ChartData>
+  xAxes: any
+  yAxes: any
+  series: any
+  cursor: any
+  scrollbarX: any
+}
+
+export interface ChartData {
+  date: Date
+  name: string
+  value: number 
+  casesConfirmedOnThisDay: number
+}
 
 @Injectable()
 export class AmChartService {
@@ -19,7 +35,7 @@ export class AmChartService {
     am4core.useTheme(am4themes_dark);
   }
 
-  create(target: string, chartType) {
+  create(target: string, chartType): Sprite {
     return am4core.create(target, chartType)
   }
 
@@ -45,6 +61,14 @@ export class AmChartService {
 
   XYChartScrollbar() {
     return new am4charts.XYChartScrollbar()
+  }
+
+  CandlestickSeries() {
+    return new am4charts.CandlestickSeries()
+  }
+  
+  ColumnSeries() {
+    return new am4charts.ColumnSeries()
   }
 }
 
