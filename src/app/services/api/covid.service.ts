@@ -13,7 +13,7 @@ export class CovidService {
       const { data } = await axios.get('https://api.covid19api.com/total/country/united-states')
   
       this.unitedStatesCovidData = data
-      console.log(this.unitedStatesCovidData)
+
       return this.formatChartData()
     } catch (err) {
       console.error(err)
