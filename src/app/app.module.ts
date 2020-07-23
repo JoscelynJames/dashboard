@@ -7,9 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core.module';
 import { SharedModule } from './shared/shared.module';
 
+// TODO: move this into another module - maybe a covid specific module? 
+import { CovidStatsComponent } from './components/covid-stats/covid-stats.component'
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CovidStatsComponent
   ],
   imports: [
     BrowserModule,
