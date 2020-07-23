@@ -1,0 +1,40 @@
+figure {
+  margin: 0
+}
+.mat-list-item, .color-coded-indicator {
+  height: auto !important; // overrides mat list item set height
+}
+
+.notification {
+  display: grid;
+  grid-template-columns: 8px 32px auto 68px;
+  grid-template-rows: 1fr;
+  gap: 1px 1px;
+  grid-template-areas: ". . . . .";
+}
+
+.person, .notification-icon, .time-since-notification {
+  margin: 4px;
+}
+
+.color-coded-indicator {
+  background: yellow;
+  width: 8px;
+}
+
+.person {
+  .avatar {
+    height: 40px;
+    width: 40px;
+    background: green;
+    border-radius: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.notification-icon {
+  font-size: 22px;
+  opacity: 35%;
+}

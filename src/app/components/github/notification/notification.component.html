@@ -1,0 +1,19 @@
+<mat-list>
+  <mat-list-item>
+    <div class="notification">
+      <div class="color-coded-indicator"></div>
+      <mat-icon class="notification-icon">{{ icon }}</mat-icon>
+      <section class="notification-content">
+        <header class="notification-action mat-subheading-1">
+          <!-- icon based on the action -->
+          <strong class="name">{{ name }}</strong> mentioned you in a comment 
+        </header>
+        <main class="notification-body mat-body-1">{{ body }}</main>
+      </section>
+      <aside class="time-since-notification" class="mat-caption">
+        <!-- make a pipe that gets the time since an action or possibly this should be a component so i can reuse it around??-->
+        5 mins ago
+      </aside>
+    </div>
+    </mat-list-item>
+ </mat-list>
