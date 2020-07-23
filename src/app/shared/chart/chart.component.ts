@@ -1,30 +1,37 @@
-import { Component, NgZone, Input } from "@angular/core";
+import { Component, NgZone, Input, OnChanges } from "@angular/core";
 import { AmChartService, Sprite, ChartData } from 'src/app/services/am-chart.service';
-import { CovidService } from 'src/app/services/api/covid.service';
 
 @Component({
   selector: "chart",
   templateUrl: "./chart.component.html",
   styleUrls: ["./chart.component.scss"]
 })
-export class ChartComponent {
+
+export class ChartComponent implements OnChanges {
   private chart: Sprite;
 
   @Input() data: Array<ChartData>
+  // TODO: break this into two separate components by theme. 
+  // Data should be shown more different due to data layout
+  @Input() theme: 'dark' | 'minimal'
 
   constructor(
     private zone: NgZone, 
     private chartService: AmChartService, 
-    private covidService: CovidService
-  ) {
-    this.chartService.useDarkTheme()
+  ) {}
+
+  ngOnChanges(changes) {
+    // TODO: this checks if data input has changed. 
+    // We should go even further and check if the data objects have changed
+    if (changes.data && this.chart) this.chart.data = this.data
   }
   
   async ngAfterViewInit() {
     this.zone.runOutsideAngular(async () => {
-      this.chart = this.chartService.create("chart-div", this.chartService.XYChart);
+      if (this.theme === 'dark') this.chartService.useDarkTheme()
+      if (this.theme === 'minimal') this.chartService.useMinimalChart()
 
-      this.chart.data = await this.covidService.getStatsForUnitedStates();
+      this.chart = this.chartService.create("chart-div", this.chartService.XYChart);
 
       this.chart.paddingRight = 30;
       this.chart.paddingBottom = 30;
@@ -41,10 +48,12 @@ export class ChartComponent {
       series.tooltipText = "{valueY.value}";
 
       this.chart.cursor = this.chartService.XYCursor();
-
-      const scrollbarX = this.chartService.XYChartScrollbar();
-      scrollbarX.series.push(series);
-      this.chart.scrollbarX = scrollbarX;
+      // Minimal does not allow for the date scroll bar. keep this check in to avoid errors in console
+      if (this.theme !== 'minimal') {
+        const scrollbarX = this.chartService.XYChartScrollbar();
+        scrollbarX.series.push(series);
+        this.chart.scrollbarX = scrollbarX;
+      }
     });
   }
 
