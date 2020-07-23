@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core.module';
 import { SharedModule } from './shared/shared.module';
+import { GithubModule } from './components/github/github.module';
 
 // TODO: move this into another module - maybe a covid specific module? 
 import { CovidStatsComponent } from './components/covid-stats/covid-stats.component'
@@ -19,7 +20,8 @@ import { CovidStatsComponent } from './components/covid-stats/covid-stats.compon
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    GithubModule
   ],
   providers: [],
   bootstrap: [AppComponent]
