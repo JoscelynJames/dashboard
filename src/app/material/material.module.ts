@@ -2,15 +2,18 @@ import { NgModule } from '@angular/core';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
     MatCardModule,
-    MatListModule
+    MatListModule,
+    MatIconModule
   ],
   exports: [ 
     MatCardModule, 
-    MatListModule 
+    MatListModule,
+    MatIconModule
   ]
 })
 export class MaterialModule { }
