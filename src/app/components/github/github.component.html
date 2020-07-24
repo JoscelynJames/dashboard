@@ -1,3 +1,13 @@
 <card title="Github Notifications" subtitle="recent comments, mentions and request reviews">
-  <notification></notification>
+  <mat-list *ngFor="let notification of github.notifications">
+    <notification 
+      [reason]="notification?.reason"
+      [icon]="notification?.type"
+      [body]="notification?.body"
+      [status]="notification?.pullRequest?.status"
+      [name]="notification?.pullRequest?.assignee"
+      [timestamp]="notification?.pullRequest?.opened"
+      [link]="notification.pullRequest?.link"
+      ></notification>
+  </mat-list>
 </card>
