@@ -1,18 +1,25 @@
 import { NgModule } from '@angular/core';
-import { MaterialModule } from '../material/material.module';
+import { CommonModule } from '@angular/common';
+
+import { MaterialModule } from '../shared/material/material.module';
 
 import { CardComponent } from './card/card.component';
 import { ChartComponent } from './chart/chart.component'
 
 @NgModule({
-  imports: [ MaterialModule ],
+  imports: [ 
+    MaterialModule,
+    CommonModule, 
+  ],
   declarations: [
     CardComponent,
-    ChartComponent
+    ChartComponent,
   ],
   exports: [ 
+    MaterialModule,
     CardComponent,
-    ChartComponent
+    ChartComponent,
+    CommonModule,
   ]
 })
 

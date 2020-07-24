@@ -8,12 +8,12 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     MatCardModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
   ],
   exports: [ 
     MatCardModule, 
     MatListModule,
-    MatIconModule
+    MatIconModule,
   ]
 })
 export class MaterialModule { }
