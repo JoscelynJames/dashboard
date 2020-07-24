@@ -1,6 +1,16 @@
 figure {
   margin: 0
 }
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.mat-subheading-1 {
+  margin: 0 0 5px;
+}
+
 .mat-list-item, .color-coded-indicator {
   height: auto !important; // overrides mat list item set height
 }
@@ -9,32 +19,24 @@ figure {
   display: grid;
   grid-template-columns: 8px 32px auto 68px;
   grid-template-rows: 1fr;
-  gap: 1px 1px;
+  gap: 1px 3px;
   grid-template-areas: ". . . . .";
 }
 
-.person, .notification-icon, .time-since-notification {
-  margin: 4px;
-}
-
 .color-coded-indicator {
-  background: yellow;
   width: 8px;
 }
 
-.person {
-  .avatar {
-    height: 40px;
-    width: 40px;
-    background: green;
-    border-radius: 60%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.open {
+  background: #507250;
+}
+
+.closed {
+  background: #864747;
 }
 
 .notification-icon {
   font-size: 22px;
   opacity: 35%;
+  margin: 0px auto;
 }

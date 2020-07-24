@@ -1,19 +1,27 @@
-<mat-list>
-  <mat-list-item>
-    <div class="notification">
-      <div class="color-coded-indicator"></div>
-      <mat-icon class="notification-icon">{{ icon }}</mat-icon>
-      <section class="notification-content">
+<mat-list-item>
+  <div class="notification">
+    <div class="color-coded-indicator" [ngClass]="status"></div>
+    <mat-icon class="notification-icon" *ngIf="reason === 'review_requested'">grading</mat-icon>
+    <mat-icon class="notification-icon" *ngIf="reason === 'comment'">comment</mat-icon>
+    <section class="notification-content">
+      <a [href]="link">
         <header class="notification-action mat-subheading-1">
           <!-- icon based on the action -->
-          <strong class="name">{{ name }}</strong> mentioned you in a comment 
+          <strong class="name">{{ name }}</strong> 
+          <span [ngSwitch]="reason">
+            <ng-template ngSwitchCase="comment"> mentioned you in a comment</ng-template>
+            <ng-template ngSwitchCase="review_requested"> requested your review</ng-template>
+            <ng-template ngSwitchDefault>...</ng-template>
+          </span>
         </header>
-        <main class="notification-body mat-body-1">{{ body }}</main>
-      </section>
-      <aside class="time-since-notification" class="mat-caption">
-        <!-- make a pipe that gets the time since an action or possibly this should be a component so i can reuse it around??-->
-        5 mins ago
-      </aside>
-    </div>
-    </mat-list-item>
- </mat-list>
+        <main class="notification-body mat-body-1">
+        {{ body }}
+        </main>
+      </a>
+    </section>
+    <aside class="time-since-notification" class="mat-caption">
+      <!-- make a pipe that gets the time since an action or possibly this should be a component so i can reuse it around??-->
+      5 mins ago
+    </aside>
+  </div>
+</mat-list-item>
