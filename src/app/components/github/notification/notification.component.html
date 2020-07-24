@@ -3,6 +3,7 @@
     <div class="color-coded-indicator" [ngClass]="status"></div>
     <mat-icon class="notification-icon" *ngIf="reason === 'review_requested'">grading</mat-icon>
     <mat-icon class="notification-icon" *ngIf="reason === 'comment'">comment</mat-icon>
+    <mat-icon class="notification-icon" *ngIf="reason === 'mention'">comment</mat-icon>
     <section class="notification-content">
       <a [href]="link">
         <header class="notification-action mat-subheading-1">
@@ -10,6 +11,7 @@
           <strong class="name">{{ name }}</strong> 
           <span [ngSwitch]="reason">
             <ng-template ngSwitchCase="comment"> mentioned you in a comment</ng-template>
+            <ng-template ngSwitchCase="mention"> mentioned you in a comment</ng-template>
             <ng-template ngSwitchCase="review_requested"> requested your review</ng-template>
             <ng-template ngSwitchDefault>...</ng-template>
           </span>
