@@ -9,8 +9,11 @@ const apiUrl = `${corsProxyApi}/${githubApiUrl}`
 @Injectable()
 export class GithubService {
   public notifications
+  public status: string
+
   constructor() {
     this.getActivity()
+    this.getStatus()
   }
 
   async getActivity() {
@@ -59,6 +62,12 @@ export class GithubService {
     const { data } = await axios.get(`${apiUrl}/users/JoscelynJames/received_events`, {
       auth: environment.auth
     })
+  }
+
+  async getStatus() {
+    const resp = await axios.get('https://kctbh9vrtdwd.statuspage.io/api/v2/status.json')
+
+    this.status = resp.data.status.description
   }
 }
  
