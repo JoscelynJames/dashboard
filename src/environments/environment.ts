@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // find a way to better hide these variables - these will eventually be provided via user config 
+  auth: {
+    'username': 'JoscelynJames',
+    'password': 'b2bb64dd2db761986ed3d0aec3ffaf92d2084359'
+  }
 };
 
 /*
