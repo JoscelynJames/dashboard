@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
+import { GithubService } from '../../services/api/github.service'
 @Component({
   selector: 'github-notifications',
   templateUrl: './github.component.html',
   styleUrls: ['./github.component.scss']
 })
-export class GithubComponent implements OnInit {
+export class GithubComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  constructor(public github: GithubService) { }
 }
