@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 
@@ -19,6 +20,7 @@ import { CovidStatsComponent } from './components/covid-stats/covid-stats.compon
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    CommonModule,
     SharedModule,
     CoreModule,
     GithubModule
