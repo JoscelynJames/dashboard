@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core.module';
 import { SharedModule } from './shared/shared.module';
 import { GithubModule } from './components/github/github.module';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 // TODO: move this into another module - maybe a covid specific module? 
 import { CovidStatsComponent } from './components/covid-stats/covid-stats.component'
@@ -15,7 +16,8 @@ import { CovidStatsComponent } from './components/covid-stats/covid-stats.compon
 @NgModule({
   declarations: [
     AppComponent,
-    CovidStatsComponent
+    CovidStatsComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,7 @@ import { CovidStatsComponent } from './components/covid-stats/covid-stats.compon
     GithubModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, DashboardComponent]
 })
 
 export class AppModule { }
