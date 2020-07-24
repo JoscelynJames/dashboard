@@ -16,8 +16,9 @@ a {
 }
 
 .notification {
+  width:100%;
   display: grid;
-  grid-template-columns: 8px 32px auto 68px;
+  grid-template-columns: 8px 1fr 12fr 68px;
   grid-template-rows: 1fr;
   gap: 1px 3px;
   grid-template-areas: ". . . . .";
