@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import axios from 'axios'
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../environments/environment'
 
 const corsProxyApi = 'https://cors-anywhere.herokuapp.com'
 const githubApiUrl = 'https://api.github.com'
@@ -8,7 +8,7 @@ const apiUrl = `${corsProxyApi}/${githubApiUrl}`
 
 @Injectable()
 export class GithubService {
-  private notifications: any // TODO: come back to type this
+  private notifications: Notification[]
   private status: string
 
   constructor() {
@@ -66,7 +66,7 @@ export class GithubService {
     }
   }
 
-  private async _fetchEvents():Promise<void> {
+  private async _fetchEvents(): Promise<void> {
     const { data } = await axios.get(`${apiUrl}/users/JoscelynJames/received_events`, {
       auth: environment.auth
     })
@@ -84,7 +84,7 @@ interface Notification {
   reason: string
   body: string
   type: string
-  pullRequest: Array<PullRequestData>
+  pullRequest: PullRequestData | Promise<PullRequestData>
 }
 
 interface PullRequestData {
