@@ -4,12 +4,14 @@ import { GithubModule } from '../components/github/github.module';
 import { SharedModule } from '../shared/shared.module';
 
 import { CovidStatsComponent } from '../components/covid-stats/covid-stats.component'
-import  { DashboardComponent } from '../dashboard/dashboard.component'
+import { StatusComponent } from '../components/status/status.component'
+import { DashboardComponent } from '../dashboard/dashboard.component'
 
 @NgModule({
   declarations: [
     CovidStatsComponent,
     DashboardComponent,
+    StatusComponent
   ],
   imports: [
     GithubModule,
@@ -17,9 +19,10 @@ import  { DashboardComponent } from '../dashboard/dashboard.component'
   ],
   exports: [
     SharedModule,
-    DashboardComponent,
-    CovidStatsComponent, 
     GithubModule,
+    DashboardComponent,
+    CovidStatsComponent,
+    StatusComponent,
   ]
 })
 
