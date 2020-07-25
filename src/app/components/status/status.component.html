@@ -1,0 +1,12 @@
+<span [ngSwitch]="githubService.getStatus">
+  Github Status: 
+  <ng-template ngSwitchCase="All Systems Operational">
+    <p class="mat-title">
+      <mat-icon class="green ">power_settings_new</mat-icon>
+      {{ githubService.getStatus }}
+    </p>
+  </ng-template>
+  <ng-template ngSwitchDefault>
+    <p>Github Api Status:{{ githubService.getStatus }}</p>
+  </ng-template>
+</span>
