@@ -1,5 +1,5 @@
 <card title="Github Notifications" subtitle="recent comments, mentions and request reviews">
-  <mat-list *ngFor="let notification of github.notifications">
+  <mat-list *ngFor="let notification of github.getNotifications">
     <notification 
       [reason]="notification?.reason"
       [icon]="notification?.type"
