@@ -21,7 +21,7 @@ export class GithubService {
     return this.status
   }
 
-  get getNotifications(): any {
+  get getNotifications(): Notification[] {
     return this.notifications
   }
 
