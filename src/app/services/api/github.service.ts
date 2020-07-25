@@ -10,6 +10,7 @@ const apiUrl = `${corsProxyApi}/${githubApiUrl}`
 export class GithubService {
   private notifications: Notification[]
   private status: string
+  private events: Event[]
 
   constructor() {
     this._getActivity()
@@ -22,6 +23,10 @@ export class GithubService {
 
   get getNotifications(): any {
     return this.notifications
+  }
+
+  get getEvents(): Event[] {
+    return this.events
   }
 
   private async _getActivity(): Promise<void> {
@@ -70,6 +75,16 @@ export class GithubService {
     const { data } = await axios.get(`${apiUrl}/users/JoscelynJames/received_events`, {
       auth: environment.auth
     })
+
+    this.events = data.map(event => {
+      return {
+        actor: event.actor.login,
+        type: event.type,
+        repoName: event.repo.name,
+        repoUrl: event.repo.url,
+        action: event.payload.action
+      }
+    })
   }
 
   private async _fetchStatus(): Promise<void> {
@@ -77,7 +92,6 @@ export class GithubService {
 
     this.status = resp.data.status.description
   }
-
 }
 
 interface Notification {
@@ -94,3 +108,10 @@ interface PullRequestData {
   assignee: string
 }
 
+interface Event {
+  actor: string
+  type: string
+  repoName: string
+  repoUrl: string
+  action: string
+}
