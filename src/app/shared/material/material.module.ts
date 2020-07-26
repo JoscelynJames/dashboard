@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core'
 
-import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card'
+import { MatListModule } from '@angular/material/list'
+import { MatIconModule } from '@angular/material/icon'
 
 @NgModule({
   imports: [
@@ -10,8 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatListModule,
     MatIconModule,
   ],
-  exports: [ 
-    MatCardModule, 
+  exports: [
+    MatCardModule,
     MatListModule,
     MatIconModule,
   ]

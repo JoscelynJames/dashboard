@@ -7,15 +7,15 @@ import { CardComponent } from './card/card.component';
 import { ChartComponent } from './chart/chart.component'
 
 @NgModule({
-  imports: [ 
+  imports: [
     MaterialModule,
-    CommonModule, 
+    CommonModule,
   ],
   declarations: [
     CardComponent,
     ChartComponent,
   ],
-  exports: [ 
+  exports: [
     MaterialModule,
     CardComponent,
     ChartComponent,

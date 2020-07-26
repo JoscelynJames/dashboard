@@ -1,10 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core'
+import { BrowserModule } from '@angular/platform-browser'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './app.component'
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CoreModule } from './core.module';
+import { CoreModule } from './core.module'
+import { DashboardModule } from './dashboard/dashboard.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,9 +13,9 @@ import { CoreModule } from './core.module';
     BrowserModule,
     BrowserAnimationsModule,
     CoreModule,
+    DashboardModule
   ],
-  exports: [CoreModule],
+  exports: [CoreModule, DashboardModule],
   bootstrap: [AppComponent]
 })
-
 export class AppModule { }
