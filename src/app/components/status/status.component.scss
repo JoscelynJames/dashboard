@@ -1,3 +1,5 @@
+@use '../../variables.scss';
+
 .mat-icon {
   font-size: 36px;
   height: 36px;
@@ -11,13 +13,13 @@ p {
 }
 
 .green {
-  color: #507250; // TODO: make variables for this
+  color: variables.$green;
 }
 
 .red {
-  color: #864747; // TODO: make variables for this
+  color: variables.$red;
 }
 
 .yellow {
-  color: #b3b156; // TODO: make variables for this
+  color: variables.$yellow;
 }

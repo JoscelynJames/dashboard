@@ -1,3 +1,5 @@
+@use '../../../variables.scss';
+
 figure {
   margin: 0
 }
@@ -29,11 +31,11 @@ a {
 }
 
 .open {
-  background: #507250; // TODO: make variables for this
+  background: variables.$green;
 }
 
 .closed {
-  background: #864747; // TODO: make variables for this
+  background: variables.$red;
 }
 
 .notification-icon {
