@@ -4,8 +4,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppComponent } from './app.component'
 
-import { CoreModule } from './core.module'
-import { DashboardModule } from './dashboard/dashboard.module'
+import { CoreModule } from './modules/core.module'
+import { DashboardModule } from './modules/dashboard.module'
 
 @NgModule({
   declarations: [AppComponent],
