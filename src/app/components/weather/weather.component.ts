@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import { WeatherService, Alerts } from '../../services/api/weather.service'
 
 @Component({
-  selector: 'app-weather',
+  selector: 'weather',
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.scss']
 })
 export class WeatherComponent implements OnInit {
-
-  constructor() { }
+  public alerts: Alerts
+  constructor(public weatherService: WeatherService) { }
 
   ngOnInit(): void {
   }

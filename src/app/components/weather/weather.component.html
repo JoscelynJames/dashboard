@@ -1,1 +1,16 @@
-<p>weather works!</p>
+<card title="Weather" subtitle="Arvada, Colorado">
+  <mat-chip-list>
+    <mat-chip *ngFor="let alert of weatherService.getAlerts">{{ alert.title }}</mat-chip>
+    <mat-chip><i class="wi wi-humidity"></i> {{ weatherService.getWeather?.humidity * 100 }}%</mat-chip>
+    <mat-chip><i class="wi wi-strong-wind"></i> {{ weatherService.getWeather?.windSpeed }}mph</mat-chip>
+    <mat-chip><i class="wi wi-raindrops"></i> {{ weatherService.getWeather?.precipitationProbability }}%</mat-chip>
+  </mat-chip-list>
+  <section class="weather">
+    <figure class="weather-icon">
+      <i class="wi wi-day-sunny"></i>
+    </figure>
+    <span>{{ weatherService.getWeather?.temp }}
+      <i class="wi wi-fahrenheit"></i>
+    </span>
+  </section>
+</card>
