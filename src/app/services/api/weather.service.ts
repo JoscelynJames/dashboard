@@ -6,7 +6,15 @@ const apiUrl = `${environment.corsProxyApi}/${environment.darkSkyApi}`
 
 @Injectable()
 export class WeatherService {
-  private weather: Weather
+  private weather: Weather = {
+    icon: 'partly-cloudy-day',
+    temp: 76,
+    precipitationProbability: 15,
+    precipitationIntensity: 30,
+    windSpeed: 5,
+    humidity: .45
+  }
+  private alerts: Alerts[]
 
   constructor() {
     this._fetchWeather()
@@ -16,19 +24,24 @@ export class WeatherService {
     return this.weather
   }
 
+  get getAlerts(): Alerts[] {
+    return this.alerts
+  }
+
   private async _fetchWeather(): Promise<void> {
     try {
       const { data } = await axios.get(`${apiUrl}/39.801121,-105.081451`)
 
       this.weather = {
-        alerts: data.alerts,
-        icon: data.currently.icon,
+        icon: 'partly-cloudy-day',
         temp: data.currently.temperature,
         precipitationProbability: data.currently.precipProbability,
         precipitationIntensity: data.currently.precipIntensity,
         windSpeed: data.currently.windSpeed,
         humidity: data.currently.humidity
       }
+      this.alerts = data.alerts
+
     } catch (err) {
       console.error(err)
     }
@@ -36,19 +49,14 @@ export class WeatherService {
 }
 
 interface Weather {
-  alerts: Alerts[]
-  icon: Icons
-  temp: string
+  icon: 'partly-cloudy-day' | 'rain' | 'snow' | 'partly-cloudy-night' | 'clear-day' | 'clear-night' | 'sleet' | 'wind' | 'fog' | 'cloudy'
+  temp: number
   precipitationProbability: number
   precipitationIntensity: number
   windSpeed: number
   humidity: number
 }
 
-interface Alerts {
+export interface Alerts {
   title: string
-}
-
-enum Icons {
-  'partly-cloudy-day', 'rain', 'snow', 'partly-cloudy-night', 'clear-day', 'clear-night', 'sleet', 'wind', 'fog', 'cloudy'
 }
