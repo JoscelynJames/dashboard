@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { SharedModule } from './shared.module';
+import { NgModule } from '@angular/core'
+import { SharedModule } from './shared.module'
 
-import { GithubComponent } from '../components/github/github.component';
-import { NotificationComponent } from '../components/github/notification/notification.component';
+import { GithubComponent } from '../components/github/github.component'
+import { NotificationComponent } from '../components/github/notification/notification.component'
 
 @NgModule({
   imports: [SharedModule],
