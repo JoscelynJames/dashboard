@@ -3,15 +3,17 @@ import { NgModule } from '@angular/core'
 import { GithubModule } from './github.module'
 import { SharedModule } from './shared.module'
 
+import { DashboardComponent } from '../components/dashboard/dashboard.component'
 import { CovidStatsComponent } from '../components/covid-stats/covid-stats.component'
 import { StatusComponent } from '../components/status/status.component'
-import { DashboardComponent } from '../components/dashboard/dashboard.component'
+import { WeatherComponent } from '../components/weather/weather.component'
 
 @NgModule({
   declarations: [
     CovidStatsComponent,
     DashboardComponent,
-    StatusComponent
+    WeatherComponent,
+    StatusComponent,
   ],
   imports: [
     GithubModule,
