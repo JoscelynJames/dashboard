@@ -18,15 +18,16 @@ export class WeatherService {
 
   private async _fetchWeather(): Promise<void> {
     try {
-      const { alerts, currently } = await axios.get(`${apiUrl}/39.801121,-105.081451`)
+      const { data } = await axios.get(`${apiUrl}/39.801121,-105.081451`)
+
       this.weather = {
-        alerts,
-        icon: currently.icon,
-        temp: currently.temperature,
-        precipitationProbability: currently.precipProbability,
-        precipitationIntensity: currently.precipIntensity,
-        windSpeed: currently.windSpeed,
-        humidity: currently.humidity
+        alerts: data.alerts,
+        icon: data.currently.icon,
+        temp: data.currently.temperature,
+        precipitationProbability: data.currently.precipProbability,
+        precipitationIntensity: data.currently.precipIntensity,
+        windSpeed: data.currently.windSpeed,
+        humidity: data.currently.humidity
       }
     } catch (err) {
       console.error(err)
