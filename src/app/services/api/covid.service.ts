@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core'
 import axios from 'axios'
-import { environment } from '../../../environments/environment'
 
 @Injectable()
 export class CovidService {
